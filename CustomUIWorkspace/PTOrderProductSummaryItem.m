@@ -15,6 +15,8 @@
     if(!dict || ![dict isKindOfClass:[NSDictionary class]]) {
         return (item);
     }
+    item.productID = [dict safeStringForKey:kProductID];
+    item.productRefundState = [dict safeStringForKey:kProductRefundState];
     item.productTitle = [dict safeStringForKey:kProductTitle];
     item.productColor = [dict safeStringForKey:kProductColor];
     item.productSize = [dict safeStringForKey:kProductSize];
@@ -27,6 +29,8 @@
 - (instancetype)init {
     self = [super init];
     if(self) {
+        _productID = nil;
+        _productRefundState = nil;
         _productTitle = nil;
         _productColor = nil;
         _productSize = nil;
@@ -40,6 +44,8 @@
 #pragma mark - <NSCopying>
 - (id)copyWithZone:(NSZone *)zone {
     PTOrderProductSummaryItem *item = [super copyWithZone:zone];
+    item.productID = self.productID;
+    item.productRefundState = self.productRefundState;
     item.productTitle = self.productTitle;
     item.productColor = self.productColor;
     item.productSize = self.productSize;

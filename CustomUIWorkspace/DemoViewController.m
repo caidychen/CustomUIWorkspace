@@ -10,6 +10,7 @@
 #import "PTCustomMenuSliderView.h"
 #import "PTOrderProductSummaryItem.h"
 #import "PTOrderProductSummaryView.h"
+#import "PTOrderStateView.h"
 #define Screenwidth [UIScreen mainScreen].bounds.size.width
 #define Screenheight [UIScreen mainScreen].bounds.size.height
 @interface DemoViewController ()<PTCustomMenuSliderViewDelegate>
@@ -20,14 +21,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:1];
     // Do any additional setup after loading the view.
     [self startPTOrderProductSummaryView];
 }
 
+-(void)startPTOrderStateView{
+    PTOrderStateView *orderStateView = [[PTOrderStateView alloc] initWithFrame:CGRectMake(0, 100, Screenwidth, 60)];
+    [orderStateView setAttributeWithOrderID:@"2015112614082887661001" orderDate:@"2015-08-02 13:48:37" orderState:PTOrderStateWaitingDelivery totalCost:@"¥864.00" needHighlightOrderState:YES];
+    [self.view addSubview:orderStateView];
+}
+
 -(void)startPTOrderProductSummaryView{
-    PTOrderProductSummaryView *summaryView = [[PTOrderProductSummaryView alloc] initWithFrame:CGRectMake(0, 100, Screenwidth, 120)];
-    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:@"葡萄探索号－虚拟＋现实儿童科技益智玩具",kProductTitle, @"塔塔紫",kProductColor, @"均码", kProductSize, @"¥399.00", kProductPrice, @"x1",kProductQty, @"", kProductIconURL,nil];
+    PTOrderProductSummaryView *summaryView = [[PTOrderProductSummaryView alloc] initWithFrame:CGRectMake(0, 80, Screenwidth, 80)];
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:@"葡萄探索号－虚拟＋现实儿童科技益智玩具",kProductTitle, @"塔塔紫",kProductColor, @"均码", kProductSize, @"¥399.00", kProductPrice, @"x1",kProductQty, @"", kProductIconURL,@"售后进行中",kProductRefundState,nil];
     PTOrderProductSummaryItem *item = [PTOrderProductSummaryItem itemWithDict:dict];
     [summaryView setAttributeWithItem:item placeholderImage:[UIImage imageNamed:@"imageViewDefault"]];
     [self.view addSubview:summaryView];

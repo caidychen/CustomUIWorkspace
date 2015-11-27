@@ -118,6 +118,7 @@
 		C661E5901C07016300B50CCB /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C661E5801C07016300B50CCB /* UIImageView+HighlightedWebCache.m */; };
 		C661E5911C07016300B50CCB /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C661E5821C07016300B50CCB /* UIImageView+WebCache.m */; };
 		C661E5921C07016300B50CCB /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C661E5841C07016300B50CCB /* UIView+WebCacheOperation.m */; };
+		C67B551C1C083529004D7DFF /* PTOrderStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = C67B551B1C083529004D7DFF /* PTOrderStateView.m */; };
 		C6F293121C06E0A900FCEFA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F293111C06E0A900FCEFA3 /* main.m */; };
 		C6F293151C06E0A900FCEFA3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F293141C06E0A900FCEFA3 /* AppDelegate.m */; };
 		C6F293181C06E0A900FCEFA3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F293171C06E0A900FCEFA3 /* ViewController.m */; };
@@ -369,6 +370,8 @@
 		C661E5821C07016300B50CCB /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		C661E5831C07016300B50CCB /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		C661E5841C07016300B50CCB /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		C67B551A1C083529004D7DFF /* PTOrderStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTOrderStateView.h; sourceTree = "<group>"; };
+		C67B551B1C083529004D7DFF /* PTOrderStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTOrderStateView.m; sourceTree = "<group>"; };
 		C6F2930C1C06E0A900FCEFA3 /* CustomUIWorkspace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomUIWorkspace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6F293101C06E0A900FCEFA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6F293111C06E0A900FCEFA3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -815,6 +818,8 @@
 				C661E3141C06F85700B50CCB /* PTCustomMenuSliderView.m */,
 				C64039B01C0715C8008F303B /* PTOrderProductSummaryView.h */,
 				C64039B11C0715C8008F303B /* PTOrderProductSummaryView.m */,
+				C67B551A1C083529004D7DFF /* PTOrderStateView.h */,
+				C67B551B1C083529004D7DFF /* PTOrderStateView.m */,
 				C64039B51C07196F008F303B /* PTOrderProductSummaryItem.h */,
 				C64039B61C07196F008F303B /* PTOrderProductSummaryItem.m */,
 				C64039B81C072A47008F303B /* PTMyOrderSummaryItem.h */,
@@ -899,7 +904,7 @@
 		C6F293041C06E0A900FCEFA3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "CHEN KAIDI";
 				TargetAttributes = {
 					C6F2930B1C06E0A900FCEFA3 = {
@@ -988,6 +993,7 @@
 				C661E5431C06FEFB00B50CCB /* SOIndexView.m in Sources */,
 				C661E5381C06FEFB00B50CCB /* SOBaseControl.m in Sources */,
 				C661E5551C06FEFB00B50CCB /* SOScrollViewAutoView.m in Sources */,
+				C67B551C1C083529004D7DFF /* PTOrderStateView.m in Sources */,
 				C661E55F1C06FEFB00B50CCB /* SOBaseViewController.m in Sources */,
 				C661E52C1C06FEFB00B50CCB /* SOGlobal.m in Sources */,
 				C661E58D1C07016300B50CCB /* UIButton+WebCache.m in Sources */,
@@ -1132,6 +1138,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1200,6 +1207,7 @@
 				GCC_PREFIX_HEADER = CustomUIWorkspace/PrefixHeader.pch;
 				INFOPLIST_FILE = CustomUIWorkspace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kdchen.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1211,6 +1219,7 @@
 				GCC_PREFIX_HEADER = CustomUIWorkspace/PrefixHeader.pch;
 				INFOPLIST_FILE = CustomUIWorkspace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kdchen.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -1229,6 +1238,7 @@
 				);
 				INFOPLIST_FILE = CustomUIWorkspaceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kdchen.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CustomUIWorkspace.app/CustomUIWorkspace";
 			};
@@ -1244,6 +1254,7 @@
 				);
 				INFOPLIST_FILE = CustomUIWorkspaceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kdchen.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CustomUIWorkspace.app/CustomUIWorkspace";
 			};

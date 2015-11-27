@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PTMyOrderSummaryItem.h"
 
-@interface PTOrderStateView : UIView
+@interface PTOrderStateView : UIControl
 
+//如果totalCost为nil，则不显示订单金额总价
+-(void)setAttributeWithOrderID:(NSString *)orderID orderDate:(NSString *)orderDate orderState:(PTOrderState)orderState totalCost:(NSString *)totalCost needHighlightOrderState:(BOOL)highlightOrderState;
 @end

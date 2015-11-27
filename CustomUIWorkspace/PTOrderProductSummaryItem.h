@@ -7,7 +7,8 @@
 //
 
 #import "SOBaseItem.h"
-
+#define kProductID @"kProductID"
+#define kProductRefundState @"kProductRefundState"
 #define kProductTitle @"kProductTitle"
 #define kProductColor @"kProductColor"
 #define kProductSize  @"kProductSize"
@@ -16,6 +17,8 @@
 #define kProductIconURL @"kProductIconURL"
 
 @interface PTOrderProductSummaryItem : SOBaseItem<NSCopying>
+@property (nonatomic, strong) NSString *productID;
+@property (nonatomic, strong) NSString *productRefundState;
 @property (nonatomic, strong) NSString *productTitle;
 @property (nonatomic, strong) NSString *productColor;
 @property (nonatomic, strong) NSString *productSize;
