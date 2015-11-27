@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C64039B21C0715C8008F303B /* PTOrderProductSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = C64039B11C0715C8008F303B /* PTOrderProductSummaryView.m */; };
+		C64039B41C071609008F303B /* imageViewDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = C64039B31C071609008F303B /* imageViewDefault.png */; };
+		C64039B71C07196F008F303B /* PTOrderProductSummaryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C64039B61C07196F008F303B /* PTOrderProductSummaryItem.m */; };
+		C64039BA1C072A47008F303B /* PTMyOrderSummaryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C64039B91C072A47008F303B /* PTMyOrderSummaryItem.m */; };
 		C661E3151C06F85700B50CCB /* PTCustomMenuSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C661E3141C06F85700B50CCB /* PTCustomMenuSliderView.m */; };
 		C661E5061C06FEFB00B50CCB /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C661E43B1C06FEFB00B50CCB /* AFHTTPRequestOperation.m */; };
 		C661E5071C06FEFB00B50CCB /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C661E43D1C06FEFB00B50CCB /* AFHTTPRequestOperationManager.m */; };
@@ -135,6 +139,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C64039B01C0715C8008F303B /* PTOrderProductSummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTOrderProductSummaryView.h; sourceTree = "<group>"; };
+		C64039B11C0715C8008F303B /* PTOrderProductSummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTOrderProductSummaryView.m; sourceTree = "<group>"; };
+		C64039B31C071609008F303B /* imageViewDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageViewDefault.png; sourceTree = "<group>"; };
+		C64039B51C07196F008F303B /* PTOrderProductSummaryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTOrderProductSummaryItem.h; sourceTree = "<group>"; };
+		C64039B61C07196F008F303B /* PTOrderProductSummaryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTOrderProductSummaryItem.m; sourceTree = "<group>"; };
+		C64039B81C072A47008F303B /* PTMyOrderSummaryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTMyOrderSummaryItem.h; sourceTree = "<group>"; };
+		C64039B91C072A47008F303B /* PTMyOrderSummaryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTMyOrderSummaryItem.m; sourceTree = "<group>"; };
 		C661E3131C06F85700B50CCB /* PTCustomMenuSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTCustomMenuSliderView.h; sourceTree = "<group>"; };
 		C661E3141C06F85700B50CCB /* PTCustomMenuSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTCustomMenuSliderView.m; sourceTree = "<group>"; };
 		C661E43A1C06FEFB00B50CCB /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -802,6 +813,12 @@
 				C6F293361C06E0F300FCEFA3 /* DemoViewController.m */,
 				C661E3131C06F85700B50CCB /* PTCustomMenuSliderView.h */,
 				C661E3141C06F85700B50CCB /* PTCustomMenuSliderView.m */,
+				C64039B01C0715C8008F303B /* PTOrderProductSummaryView.h */,
+				C64039B11C0715C8008F303B /* PTOrderProductSummaryView.m */,
+				C64039B51C07196F008F303B /* PTOrderProductSummaryItem.h */,
+				C64039B61C07196F008F303B /* PTOrderProductSummaryItem.m */,
+				C64039B81C072A47008F303B /* PTMyOrderSummaryItem.h */,
+				C64039B91C072A47008F303B /* PTMyOrderSummaryItem.m */,
 				C6F293191C06E0A900FCEFA3 /* Main.storyboard */,
 				C6F2931C1C06E0A900FCEFA3 /* Images.xcassets */,
 				C6F2931E1C06E0A900FCEFA3 /* LaunchScreen.xib */,
@@ -813,6 +830,7 @@
 		C6F2930F1C06E0A900FCEFA3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C64039B31C071609008F303B /* imageViewDefault.png */,
 				C6F293101C06E0A900FCEFA3 /* Info.plist */,
 				C6F293111C06E0A900FCEFA3 /* main.m */,
 				C661E5661C07006F00B50CCB /* PrefixHeader.pch */,
@@ -924,6 +942,7 @@
 				C661E54E1C06FEFB00B50CCB /* refreshSuccess@2x.png in Resources */,
 				C6F293201C06E0A900FCEFA3 /* LaunchScreen.xib in Resources */,
 				C661E50F1C06FEFB00B50CCB /* LICENSE in Resources */,
+				C64039B41C071609008F303B /* imageViewDefault.png in Resources */,
 				C6F2931D1C06E0A900FCEFA3 /* Images.xcassets in Resources */,
 				C661E54D1C06FEFB00B50CCB /* refreshSuccess.png in Resources */,
 				C661E54B1C06FEFB00B50CCB /* refreshFailed.png in Resources */,
@@ -977,6 +996,7 @@
 				C661E51B1C06FEFB00B50CCB /* NSData+Additions.m in Sources */,
 				C661E52D1C06FEFB00B50CCB /* SOBaseItem.m in Sources */,
 				C661E5451C06FEFB00B50CCB /* SOLoadingView.m in Sources */,
+				C64039BA1C072A47008F303B /* PTMyOrderSummaryItem.m in Sources */,
 				C661E5871C07016300B50CCB /* SDWebImageCompat.m in Sources */,
 				C661E5231C06FEFB00B50CCB /* UIImage+SOImage.m in Sources */,
 				C661E5291C06FEFB00B50CCB /* UIView+Pop.m in Sources */,
@@ -998,9 +1018,11 @@
 				C661E5401C06FEFB00B50CCB /* SOCheckBox.m in Sources */,
 				C661E5511C06FEFB00B50CCB /* SRRefreshView.m in Sources */,
 				C6F293151C06E0A900FCEFA3 /* AppDelegate.m in Sources */,
+				C64039B21C0715C8008F303B /* PTOrderProductSummaryView.m in Sources */,
 				C661E5541C06FEFB00B50CCB /* SOScrollTextCellView.m in Sources */,
 				C661E5211C06FEFB00B50CCB /* UIButton+SOButton.m in Sources */,
 				C6F293121C06E0A900FCEFA3 /* main.m in Sources */,
+				C64039B71C07196F008F303B /* PTOrderProductSummaryItem.m in Sources */,
 				C661E5521C06FEFB00B50CCB /* SRSlimeView.m in Sources */,
 				C661E52A1C06FEFB00B50CCB /* UIViewController+SOViewController.m in Sources */,
 				C661E5141C06FEFB00B50CCB /* UIButton+AFNetworking.m in Sources */,

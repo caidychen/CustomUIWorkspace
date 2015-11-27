@@ -16,4 +16,5 @@
 #import "AppDelegate.h"
 #import "NSObject+Swizzle.h"
 #import "SOKit.h"
+#import "UIImageView+WebCache.h"
 #endif

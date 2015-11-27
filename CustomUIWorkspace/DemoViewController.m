@@ -8,7 +8,8 @@
 
 #import "DemoViewController.h"
 #import "PTCustomMenuSliderView.h"
-
+#import "PTOrderProductSummaryItem.h"
+#import "PTOrderProductSummaryView.h"
 #define Screenwidth [UIScreen mainScreen].bounds.size.width
 #define Screenheight [UIScreen mainScreen].bounds.size.height
 @interface DemoViewController ()<PTCustomMenuSliderViewDelegate>
@@ -21,6 +22,18 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
+    [self startPTOrderProductSummaryView];
+}
+
+-(void)startPTOrderProductSummaryView{
+    PTOrderProductSummaryView *summaryView = [[PTOrderProductSummaryView alloc] initWithFrame:CGRectMake(0, 100, Screenwidth, 120)];
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:@"葡萄探索号－虚拟＋现实儿童科技益智玩具",kProductTitle, @"塔塔紫",kProductColor, @"均码", kProductSize, @"¥399.00", kProductPrice, @"x1",kProductQty, @"", kProductIconURL,nil];
+    PTOrderProductSummaryItem *item = [PTOrderProductSummaryItem itemWithDict:dict];
+    [summaryView setAttributeWithItem:item placeholderImage:[UIImage imageNamed:@"imageViewDefault"]];
+    [self.view addSubview:summaryView];
+}
+
+-(void)startPTCustomeMenuSliderView{
     PTCustomMenuSliderView *sliderView = [[PTCustomMenuSliderView alloc] initWithFrame:CGRectMake(0, 100, Screenwidth, 44)];
     [sliderView setAttributeWithItems:@[@"全部",@"待付款",@"待发货",@"待收货",@"全部",@"待付款",@"待发货",@"待收货"] buttonWidth:Screenwidth/4 themeColor:[UIColor redColor] idleColor:[UIColor grayColor] trackerWidth:25];
     
