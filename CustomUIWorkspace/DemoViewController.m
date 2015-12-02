@@ -21,14 +21,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:1];
+    self.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.1];
     // Do any additional setup after loading the view.
-    [self startPTOrderProductSummaryView];
+    [self startPTCustomeMenuSliderView];
 }
 
 -(void)startPTOrderStateView{
-    PTOrderStateView *orderStateView = [[PTOrderStateView alloc] initWithFrame:CGRectMake(0, 100, Screenwidth, 60)];
-    [orderStateView setAttributeWithOrderID:@"2015112614082887661001" orderDate:@"2015-08-02 13:48:37" orderState:PTOrderStateWaitingDelivery totalCost:@"¥864.00" needHighlightOrderState:YES];
+    PTOrderStateView *orderStateView = [[PTOrderStateView alloc] initWithFrame:CGRectMake(0, 100, Screenwidth, 80)];
+    [orderStateView setAttributeWithOrderID:@"2015112614082887661001" orderDate:@"2015-08-02 13:48:37" orderState:PTOrderStateOrderShipped totalCost:@"¥864.00" needHighlightOrderState:YES];
     [self.view addSubview:orderStateView];
 }
 

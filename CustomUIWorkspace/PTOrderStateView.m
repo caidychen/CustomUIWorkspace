@@ -11,6 +11,7 @@
 #define kLabelHorizontalInset 10
 
 @interface PTOrderStateView()
+@property (nonatomic, strong) UILabel *orderIDPrefixLabel;
 @property (nonatomic, strong) UILabel *orderIDLabel;
 @property (nonatomic, strong) UILabel *orderDateLabel;
 @property (nonatomic, strong) UILabel *orderStateLabel;
@@ -23,6 +24,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
+        [self addSubview:self.orderIDPrefixLabel];
         [self addSubview:self.orderIDLabel];
         [self addSubview:self.orderDateLabel];
         [self addSubview:self.orderStateLabel];
@@ -32,7 +34,8 @@
 }
 
 -(void)setAttributeWithOrderID:(NSString *)orderID orderDate:(NSString *)orderDate orderState:(PTOrderState)orderState totalCost:(NSString *)totalCost needHighlightOrderState:(BOOL)highlightOrderState{
-    self.orderIDLabel.text = [NSString stringWithFormat:@"订单号:%@",orderID];
+    self.orderIDPrefixLabel.text = @"订单号";
+    self.orderIDLabel.text = [NSString stringWithFormat:@"%@",orderID];
     self.orderDateLabel.text = orderDate;
     self.orderStateLabel.text = [self getOrderStateTextFromStateCode:orderState];
     if (totalCost) {
@@ -54,9 +57,11 @@
 
 -(void)layoutSubviews{
     [super layoutSubviews];
+    CGSize orderIDPrefixLabelSize = [self.orderIDPrefixLabel.text soSizeWithFont:self.orderIDPrefixLabel.font constrainedToWidth:self.width];
     CGSize orderIDLabelSize = [self.orderIDLabel.text soSizeWithFont:self.orderIDLabel.font constrainedToWidth:self.width];
     CGSize orderDateLabelSize = [self.orderDateLabel.text soSizeWithFont:self.orderDateLabel.font constrainedToWidth:self.width];
-    self.orderIDLabel.frame = CGRectMake(kLabelHorizontalInset, self.height/2-orderIDLabelSize.height, orderIDLabelSize.width, orderIDLabelSize.height);
+    self.orderIDPrefixLabel.frame = CGRectMake(kLabelHorizontalInset, kLabelHorizontalInset, orderIDPrefixLabelSize.width, orderIDPrefixLabelSize.height);
+    self.orderIDLabel.frame = CGRectMake(kLabelHorizontalInset, self.orderIDPrefixLabel.bottom+kLabelHorizontalInset/2, orderIDLabelSize.width, orderIDLabelSize.height);
     self.orderDateLabel.frame = CGRectMake(kLabelHorizontalInset, self.orderIDLabel.bottom+4, orderDateLabelSize.width, orderDateLabelSize.height);
     if (self.orderTotalCostLabel.hidden) {
         self.orderStateLabel.frame = CGRectMake(self.orderIDLabel.right+kLabelHorizontalInset, self.height/2-self.orderTotalCostLabel.font.lineHeight/2, self.width-self.orderIDLabel.right-kLabelHorizontalInset*2, self.orderTotalCostLabel.font.lineHeight);
@@ -73,16 +78,16 @@
             stateText = @"未付款";
             break;
         case PTOrderStateWaitingDelivery:
-            stateText = @"已付款等待发货";
+            stateText = @"已付款-未发货";
             break;
         case PTOrderStateApplyingAfterSaleSerivce:
             stateText = @"申请售后中";
             break;
         case PTOrderStateOrderShipped:
-            stateText = @"已付款已发货";
+            stateText = @"已付款-已发货";
             break;
         case PTOrderStateDelivered:
-            stateText = @"已签收，交易完成";
+            stateText = @"已完成";
             break;
         case PTOrderStateDeliveryRejected:
             stateText = @"退签";
@@ -117,6 +122,15 @@
 }
 
 #pragma mark - getters/setters
+
+-(UILabel *)orderIDPrefixLabel{
+    if (!_orderIDPrefixLabel) {
+        _orderIDPrefixLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        _orderIDPrefixLabel.font = [UIFont systemFontOfSize:14];
+    }
+    return _orderIDPrefixLabel;
+}
+
 -(UILabel *)orderIDLabel{
     if (!_orderIDLabel) {
         _orderIDLabel = [[UILabel alloc] initWithFrame:CGRectZero];

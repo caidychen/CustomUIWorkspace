@@ -11,6 +11,8 @@
 		C64039B41C071609008F303B /* imageViewDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = C64039B31C071609008F303B /* imageViewDefault.png */; };
 		C64039B71C07196F008F303B /* PTOrderProductSummaryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C64039B61C07196F008F303B /* PTOrderProductSummaryItem.m */; };
 		C64039BA1C072A47008F303B /* PTMyOrderSummaryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C64039B91C072A47008F303B /* PTMyOrderSummaryItem.m */; };
+		C64399E31C0E8F5B005BB420 /* UICollectionViewDemoController.m in Sources */ = {isa = PBXBuildFile; fileRef = C64399E21C0E8F5B005BB420 /* UICollectionViewDemoController.m */; };
+		C64399E61C0E9E24005BB420 /* TestCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C64399E51C0E9E24005BB420 /* TestCollectionViewCell.m */; };
 		C661E3151C06F85700B50CCB /* PTCustomMenuSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C661E3141C06F85700B50CCB /* PTCustomMenuSliderView.m */; };
 		C661E5061C06FEFB00B50CCB /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C661E43B1C06FEFB00B50CCB /* AFHTTPRequestOperation.m */; };
 		C661E5071C06FEFB00B50CCB /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C661E43D1C06FEFB00B50CCB /* AFHTTPRequestOperationManager.m */; };
@@ -147,6 +149,10 @@
 		C64039B61C07196F008F303B /* PTOrderProductSummaryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTOrderProductSummaryItem.m; sourceTree = "<group>"; };
 		C64039B81C072A47008F303B /* PTMyOrderSummaryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTMyOrderSummaryItem.h; sourceTree = "<group>"; };
 		C64039B91C072A47008F303B /* PTMyOrderSummaryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTMyOrderSummaryItem.m; sourceTree = "<group>"; };
+		C64399E11C0E8F5B005BB420 /* UICollectionViewDemoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewDemoController.h; sourceTree = "<group>"; };
+		C64399E21C0E8F5B005BB420 /* UICollectionViewDemoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewDemoController.m; sourceTree = "<group>"; };
+		C64399E41C0E9E24005BB420 /* TestCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewCell.h; sourceTree = "<group>"; };
+		C64399E51C0E9E24005BB420 /* TestCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewCell.m; sourceTree = "<group>"; };
 		C661E3131C06F85700B50CCB /* PTCustomMenuSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTCustomMenuSliderView.h; sourceTree = "<group>"; };
 		C661E3141C06F85700B50CCB /* PTCustomMenuSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTCustomMenuSliderView.m; sourceTree = "<group>"; };
 		C661E43A1C06FEFB00B50CCB /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -814,6 +820,10 @@
 				C6F293171C06E0A900FCEFA3 /* ViewController.m */,
 				C6F293351C06E0F300FCEFA3 /* DemoViewController.h */,
 				C6F293361C06E0F300FCEFA3 /* DemoViewController.m */,
+				C64399E11C0E8F5B005BB420 /* UICollectionViewDemoController.h */,
+				C64399E21C0E8F5B005BB420 /* UICollectionViewDemoController.m */,
+				C64399E41C0E9E24005BB420 /* TestCollectionViewCell.h */,
+				C64399E51C0E9E24005BB420 /* TestCollectionViewCell.m */,
 				C661E3131C06F85700B50CCB /* PTCustomMenuSliderView.h */,
 				C661E3141C06F85700B50CCB /* PTCustomMenuSliderView.m */,
 				C64039B01C0715C8008F303B /* PTOrderProductSummaryView.h */,
@@ -980,6 +990,7 @@
 				C661E53A1C06FEFB00B50CCB /* SOBaseScrollView.m in Sources */,
 				C661E55E1C06FEFB00B50CCB /* SOBaseTableViewController.m in Sources */,
 				C661E5491C06FEFB00B50CCB /* SOPopupButtonGroupView.m in Sources */,
+				C64399E31C0E8F5B005BB420 /* UICollectionViewDemoController.m in Sources */,
 				C661E5061C06FEFB00B50CCB /* AFHTTPRequestOperation.m in Sources */,
 				C661E52B1C06FEFB00B50CCB /* UIWebView+Memory.m in Sources */,
 				C661E55A1C06FEFB00B50CCB /* SOTextFieldListView.m in Sources */,
@@ -1031,6 +1042,7 @@
 				C64039B71C07196F008F303B /* PTOrderProductSummaryItem.m in Sources */,
 				C661E5521C06FEFB00B50CCB /* SRSlimeView.m in Sources */,
 				C661E52A1C06FEFB00B50CCB /* UIViewController+SOViewController.m in Sources */,
+				C64399E61C0E9E24005BB420 /* TestCollectionViewCell.m in Sources */,
 				C661E5141C06FEFB00B50CCB /* UIButton+AFNetworking.m in Sources */,
 				C661E52F1C06FEFB00B50CCB /* SOLocalAuthManager.m in Sources */,
 				C661E5351C06FEFB00B50CCB /* SOBaseOperation.m in Sources */,

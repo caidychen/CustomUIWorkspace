@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DemoViewController.h"
+#import "UICollectionViewDemoController.h"
 @interface AppDelegate ()
 
 @end
@@ -17,7 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    DemoViewController *demoVC = [[DemoViewController alloc] init];
+    UICollectionViewDemoController *demoVC = [[UICollectionViewDemoController alloc] init];
     self.window.rootViewController = demoVC;
     [self.window makeKeyAndVisible];
     return YES;
