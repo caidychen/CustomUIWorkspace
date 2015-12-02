@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>[大笑]</key>
+	<string>002.png</string>
+	<key>[发怒]</key>
+	<string>010.png</string>
+</dict>
+</plist>

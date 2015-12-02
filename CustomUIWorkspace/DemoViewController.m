@@ -11,9 +11,18 @@
 #import "PTOrderProductSummaryItem.h"
 #import "PTOrderProductSummaryView.h"
 #import "PTOrderStateView.h"
+#import "PTEmojiInputView.h"
+#import "PTAttributeStringTool.h"
+
+#define kImageURL @"imageURL"
+#define kCode @"code"
+
 #define Screenwidth [UIScreen mainScreen].bounds.size.width
 #define Screenheight [UIScreen mainScreen].bounds.size.height
-@interface DemoViewController ()<PTCustomMenuSliderViewDelegate>
+@interface DemoViewController ()<PTCustomMenuSliderViewDelegate,UITextViewDelegate, PTEmojiInputViewDelegate>
+@property (nonatomic, strong) UITextView *textView;
+@property (nonatomic, strong) PTEmojiInputView *emojiView;
+@property (nonatomic, strong) NSDictionary *emojiDictionaryList;
 
 @end
 
@@ -21,52 +30,99 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.1];
+    self.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:1.0];
     // Do any additional setup after loading the view.
-    [self startPTCustomeMenuSliderView];
-}
-
--(void)startPTOrderStateView{
-    PTOrderStateView *orderStateView = [[PTOrderStateView alloc] initWithFrame:CGRectMake(0, 100, Screenwidth, 80)];
-    [orderStateView setAttributeWithOrderID:@"2015112614082887661001" orderDate:@"2015-08-02 13:48:37" orderState:PTOrderStateOrderShipped totalCost:@"¥864.00" needHighlightOrderState:YES];
-    [self.view addSubview:orderStateView];
-}
-
--(void)startPTOrderProductSummaryView{
-    PTOrderProductSummaryView *summaryView = [[PTOrderProductSummaryView alloc] initWithFrame:CGRectMake(0, 80, Screenwidth, 80)];
-    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:@"葡萄探索号－虚拟＋现实儿童科技益智玩具",kProductTitle, @"塔塔紫",kProductColor, @"均码", kProductSize, @"¥399.00", kProductPrice, @"x1",kProductQty, @"", kProductIconURL,@"售后进行中",kProductRefundState,nil];
-    PTOrderProductSummaryItem *item = [PTOrderProductSummaryItem itemWithDict:dict];
-    [summaryView setAttributeWithItem:item placeholderImage:[UIImage imageNamed:@"imageViewDefault"]];
-    [self.view addSubview:summaryView];
-}
-
--(void)startPTCustomeMenuSliderView{
-    PTCustomMenuSliderView *sliderView = [[PTCustomMenuSliderView alloc] initWithFrame:CGRectMake(0, 100, Screenwidth, 44)];
-    [sliderView setAttributeWithItems:@[@"全部",@"待付款",@"待发货",@"待收货",@"全部",@"待付款",@"待发货",@"待收货"] buttonWidth:Screenwidth/4 themeColor:[UIColor redColor] idleColor:[UIColor grayColor] trackerWidth:25];
+    [self.view addSubview:self.textView];
+    self.textView.inputView = self.emojiView;
     
-    sliderView.layer.borderColor = [[UIColor blackColor] colorWithAlphaComponent:0.1].CGColor;
-    sliderView.layer.borderWidth = 1;
-    sliderView.delegate = self;
-    [self.view addSubview:sliderView];
+    NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+    attachment.image = [UIImage imageNamed:@"001.png"];
+    attachment.bounds = CGRectMake(0, ([UIFont systemFontOfSize:16].pointSize-[UIFont systemFontOfSize:16].lineHeight)/2, [UIFont systemFontOfSize:16].pointSize, [UIFont systemFontOfSize:16].pointSize);
+    NSString *text = @"My label text ";
+    NSAttributedString *attachmentString = [NSAttributedString attributedStringWithAttachment:attachment];
+    NSMutableAttributedString *myString= [[NSMutableAttributedString alloc] initWithString:text];
+    [myString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:16] range:NSMakeRange(0, [text length])];
+    [myString appendAttributedString:attachmentString];
+    
+    
+    self.emojiDictionaryList = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"emoji" ofType:@"plist"]];
+    
+//    self.textView.attributedText = [self highlightNicknameForText:@"这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大asdasdasdasdas笑]" withFont:[UIFont systemFontOfSize:16]];
+    NSString *testString = @"这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试";
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:testString];
+    [attributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:16] range:NSMakeRange(0, [attributedString length])];
+    attributedString = [PTAttributeStringTool convertEmojiWithAttributedString:attributedString contentDictionary:self.emojiDictionaryList];
+    self.textView.attributedText = attributedString;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(NSAttributedString *)highlightNicknameForText:(NSString *)inputText withFont:(UIFont *)font{
+    
+    clock_t s = clock();
+    
+    if (inputText.length == 0) {
+        return nil;
+    }
+    
+    NSString *text = inputText;
+    
+    // This will give me an attributedString with the base text-style
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:text];
+    NSString *regularExpression = @"\\[\\w+\\]";
+ 
+    NSError *error = nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regularExpression options:0 error:&error];
+    NSArray *matches = [regex matchesInString:text
+                                      options:0
+                                        range:NSMakeRange(0, text.length)];
+    [attributedString addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, [attributedString length])];
+    
+    [matches enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(NSTextCheckingResult *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSRange matchRange = [obj rangeAtIndex:0];
+        NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+        attachment.image = [UIImage imageNamed:[self getImageURLPathfromEmojiCode:[inputText substringWithRange:matchRange]]];
+        attachment.bounds = CGRectMake(0, ([UIFont systemFontOfSize:16].pointSize-[UIFont systemFontOfSize:16].lineHeight)/2, [UIFont systemFontOfSize:16].pointSize, [UIFont systemFontOfSize:16].pointSize);
+        NSAttributedString *attachmentString = [NSAttributedString attributedStringWithAttachment:attachment];
+        [attributedString replaceCharactersInRange:matchRange withAttributedString:attachmentString];    }];
+    
+    clock_t e = clock();
+    
+    NSLog(@"%ld",(e-s)/(float)CLOCKS_PER_SEC);
+    
+    return attributedString;
+}
+
+-(NSString *)getImageURLPathfromEmojiCode:(NSString *)code{
+    NSString *imageURL = @"";
+    for(NSDictionary *dict in self.emojiDictionaryList){
+        if ([[dict safeObjectForKey:kCode] isEqualToString:code]) {
+            imageURL = [dict safeObjectForKey:kImageURL];
+            break;
+        }
+    }
+    return imageURL;
+}
+
+-(void)emojiTextDidChange:(NSString *)text{
+    NSLog(@"text %@",text);
 }
 
 -(void)sliderView:(PTCustomMenuSliderView *)sliderView didSelecteAtIndex:(NSInteger)index{
-    NSLog(@"PTCustomMenuSliderView: did selecte on index:%ld",index);
+    NSLog(@"PTCustomMenuSliderView: did selecte on index:%ld",(long)index);
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(UITextView *)textView{
+    if (!_textView) {
+        _textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 50, Screenwidth, 100)];
+        _textView.delegate = self;
+    }
+    return _textView;
 }
-*/
+
+-(PTEmojiInputView *)emojiView{
+    if (!_emojiView) {
+        _emojiView = [[PTEmojiInputView alloc] initWithFrame:CGRectMake(0, 0, Screenwidth, 216)];
+    }
+    return _emojiView;
+}
 
 @end

@@ -18,7 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    UICollectionViewDemoController *demoVC = [[UICollectionViewDemoController alloc] init];
+    DemoViewController *demoVC = [[DemoViewController alloc] init];
     self.window.rootViewController = demoVC;
     [self.window makeKeyAndVisible];
     return YES;
