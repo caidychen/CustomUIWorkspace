@@ -13,7 +13,8 @@
 #import "PTOrderStateView.h"
 #import "PTEmojiInputView.h"
 #import "PTAttributeStringTool.h"
-
+#import "CTView.h"
+#import "PTAchievementBoardStandard.h"
 #define kImageURL @"imageURL"
 #define kCode @"code"
 
@@ -32,6 +33,13 @@
     [super viewDidLoad];
     self.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:1.0];
     // Do any additional setup after loading the view.
+    PTAchievementBoardStandard *board = [[PTAchievementBoardStandard alloc] initWithFrame:CGRectMake(0, 0, self.view.width/2, self.view.width/2/299*268)];
+    [board setAttributeWithCodeString:@"<font color=646464 size=14>昨日30分钟拼完</font><br><font color=313131 size=30>100</font><font color=313131 size=14>个</font><font color=646464 size=14>\n七巧板</font><br><font color=959595 size=12>平均速度</font><font color=646464 size=12 bold>超越了90%</font><font color=959595 size=12>的孩子</font>" icon:@"040"];
+    board.center = self.view.center;
+    [self.view addSubview:board];
+}
+
+-(void)startEmoji{
     [self.view addSubview:self.textView];
     self.textView.inputView = self.emojiView;
     
@@ -47,8 +55,8 @@
     
     self.emojiDictionaryList = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"emoji" ofType:@"plist"]];
     
-//    self.textView.attributedText = [self highlightNicknameForText:@"这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大笑][大asdasdasdasdas笑]" withFont:[UIFont systemFontOfSize:16]];
-    NSString *testString = @"这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试[大笑][大笑]这是一句测试[大笑][发怒]这是一句测试";
+    
+    NSString *testString = @"这是一句测试[大笑][发怒]";
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:testString];
     [attributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:16] range:NSMakeRange(0, [attributedString length])];
     attributedString = [PTAttributeStringTool convertEmojiWithAttributedString:attributedString contentDictionary:self.emojiDictionaryList];
@@ -85,9 +93,7 @@
         [attributedString replaceCharactersInRange:matchRange withAttributedString:attachmentString];    }];
     
     clock_t e = clock();
-    
-    NSLog(@"%ld",(e-s)/(float)CLOCKS_PER_SEC);
-    
+
     return attributedString;
 }
 

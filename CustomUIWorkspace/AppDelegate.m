@@ -21,6 +21,7 @@
     DemoViewController *demoVC = [[DemoViewController alloc] init];
     self.window.rootViewController = demoVC;
     [self.window makeKeyAndVisible];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
     return YES;
 }
 

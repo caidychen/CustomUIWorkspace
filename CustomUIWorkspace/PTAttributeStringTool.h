@@ -10,4 +10,5 @@
 
 @interface PTAttributeStringTool : NSObject
 +(NSMutableAttributedString *)convertEmojiWithAttributedString:(NSAttributedString *)attributedString contentDictionary:(NSDictionary *)contentDictionary;
++(NSArray *)decompositeHTMLCode:(NSString *)code;
 @end

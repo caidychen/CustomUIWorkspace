@@ -47,6 +47,8 @@
 		C6439A2D1C0EF36C005BB420 /* btn_f_delet_sel@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6439A2B1C0EF36C005BB420 /* btn_f_delet_sel@3x.png */; };
 		C6439A301C0EF925005BB420 /* UIColor+Help.m in Sources */ = {isa = PBXBuildFile; fileRef = C6439A2F1C0EF925005BB420 /* UIColor+Help.m */; };
 		C6439A361C0F2687005BB420 /* PTAttributeStringTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C6439A351C0F2687005BB420 /* PTAttributeStringTool.m */; };
+		C64DD8101C15A256009EEED7 /* PTAchievementBoardStandard.m in Sources */ = {isa = PBXBuildFile; fileRef = C64DD80F1C15A256009EEED7 /* PTAchievementBoardStandard.m */; };
+		C65966091C104E05008CDA83 /* CTView.m in Sources */ = {isa = PBXBuildFile; fileRef = C65966081C104E05008CDA83 /* CTView.m */; };
 		C661E3151C06F85700B50CCB /* PTCustomMenuSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C661E3141C06F85700B50CCB /* PTCustomMenuSliderView.m */; };
 		C661E5061C06FEFB00B50CCB /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C661E43B1C06FEFB00B50CCB /* AFHTTPRequestOperation.m */; };
 		C661E5071C06FEFB00B50CCB /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C661E43D1C06FEFB00B50CCB /* AFHTTPRequestOperationManager.m */; };
@@ -224,6 +226,10 @@
 		C6439A2F1C0EF925005BB420 /* UIColor+Help.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Help.m"; sourceTree = "<group>"; };
 		C6439A341C0F2687005BB420 /* PTAttributeStringTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTAttributeStringTool.h; sourceTree = "<group>"; };
 		C6439A351C0F2687005BB420 /* PTAttributeStringTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTAttributeStringTool.m; sourceTree = "<group>"; };
+		C64DD80E1C15A256009EEED7 /* PTAchievementBoardStandard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTAchievementBoardStandard.h; sourceTree = "<group>"; };
+		C64DD80F1C15A256009EEED7 /* PTAchievementBoardStandard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTAchievementBoardStandard.m; sourceTree = "<group>"; };
+		C65966071C104E05008CDA83 /* CTView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTView.h; sourceTree = "<group>"; };
+		C65966081C104E05008CDA83 /* CTView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTView.m; sourceTree = "<group>"; };
 		C661E3131C06F85700B50CCB /* PTCustomMenuSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTCustomMenuSliderView.h; sourceTree = "<group>"; };
 		C661E3141C06F85700B50CCB /* PTCustomMenuSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTCustomMenuSliderView.m; sourceTree = "<group>"; };
 		C661E43A1C06FEFB00B50CCB /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -949,6 +955,10 @@
 				C64039B91C072A47008F303B /* PTMyOrderSummaryItem.m */,
 				C6439A341C0F2687005BB420 /* PTAttributeStringTool.h */,
 				C6439A351C0F2687005BB420 /* PTAttributeStringTool.m */,
+				C65966071C104E05008CDA83 /* CTView.h */,
+				C65966081C104E05008CDA83 /* CTView.m */,
+				C64DD80E1C15A256009EEED7 /* PTAchievementBoardStandard.h */,
+				C64DD80F1C15A256009EEED7 /* PTAchievementBoardStandard.m */,
 				C6F293191C06E0A900FCEFA3 /* Main.storyboard */,
 				C6F2931C1C06E0A900FCEFA3 /* Images.xcassets */,
 				C6F2931E1C06E0A900FCEFA3 /* LaunchScreen.xib */,
@@ -1138,6 +1148,7 @@
 				C661E53A1C06FEFB00B50CCB /* SOBaseScrollView.m in Sources */,
 				C6439A301C0EF925005BB420 /* UIColor+Help.m in Sources */,
 				C661E55E1C06FEFB00B50CCB /* SOBaseTableViewController.m in Sources */,
+				C64DD8101C15A256009EEED7 /* PTAchievementBoardStandard.m in Sources */,
 				C661E5491C06FEFB00B50CCB /* SOPopupButtonGroupView.m in Sources */,
 				C64399E31C0E8F5B005BB420 /* UICollectionViewDemoController.m in Sources */,
 				C661E5061C06FEFB00B50CCB /* AFHTTPRequestOperation.m in Sources */,
@@ -1232,6 +1243,7 @@
 				C661E58B1C07016300B50CCB /* SDWebImageManager.m in Sources */,
 				C661E53D1C06FEFB00B50CCB /* SOAlertView.m in Sources */,
 				C661E5101C06FEFB00B50CCB /* README.md in Sources */,
+				C65966091C104E05008CDA83 /* CTView.m in Sources */,
 				C661E5641C06FF3200B50CCB /* NSObject+Swizzle.m in Sources */,
 				C661E5201C06FEFB00B50CCB /* NSString+SOAdditions.m in Sources */,
 				C661E5241C06FEFB00B50CCB /* UINavigationBar+FixedHeightWhenStatusBarHidden.m in Sources */,
