@@ -21,7 +21,7 @@
 #define kSendButtonWidth 80
 @interface PTEmojiInputView ()<UIScrollViewDelegate>
 @property (nonatomic, strong) NSString *resultText;
-@property (nonatomic, strong) NSArray *emojiDictionaryList;
+@property (nonatomic, strong) NSMutableArray *emojiDictionaryList;
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIPageControl *pageControl;
 @property (nonatomic, strong) UIView *bottomPanel;
@@ -37,7 +37,17 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor colorWithRed:0.9 green:0.90 blue:0.9 alpha:1.0];
-        self.emojiDictionaryList = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"emoji" ofType:@"plist"]];
+        self.emojiDictionaryList = [[NSMutableArray alloc] init];
+        NSDictionary *basicDictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"emoji" ofType:@"plist"]];
+        for(NSString *key in [basicDictionary allKeys]){
+            [self.emojiDictionaryList addObject:[NSDictionary dictionaryWithObjectsAndKeys:[basicDictionary safeObjectForKey:key],key, nil]];
+        }
+        NSArray *sortedDict = [self.emojiDictionaryList sortedArrayUsingComparator:^NSComparisonResult(NSDictionary *first, NSDictionary *second) {
+            NSString *valueStringA = [first safeObjectForKey:[[first allKeys] safeObjectAtIndex:0]];
+            NSString *valueStringB = [second safeObjectForKey:[[second allKeys] safeObjectAtIndex:0]];
+            return [valueStringA compare:valueStringB]; 
+        }];
+        self.emojiDictionaryList = [[NSMutableArray alloc] initWithArray:sortedDict];
         self.resultText = [[NSMutableString alloc] init];
         [self addSubview:self.scrollView];
         [self addSubview:self.pageControl];
@@ -95,7 +105,7 @@
     NSInteger column = 0;
     for (NSInteger i=0; i<item.count; i++) {
         UIButton *iconImageView = [[UIButton alloc] initWithFrame:CGRectMake(column*kIconSize+self.spacing*(column+1), row*kIconSize+self.spacing*(row+1), kIconSize, kIconSize)];
-        [iconImageView setImage:[UIImage imageNamed:[[item objectAtIndex:i] safeObjectForKey:kImageURL]] forState:UIControlStateNormal] ;
+        [iconImageView setImage:[UIImage imageNamed:[[item objectAtIndex:i] safeObjectForKey:[[[item objectAtIndex:i] allKeys] objectAtIndex:0]]] forState:UIControlStateNormal] ;
         iconImageView.tag = offset+i;
         [iconImageView addTarget:self action:@selector(didTapIcon:) forControlEvents:UIControlEventTouchUpInside];
         [view addSubview:iconImageView];

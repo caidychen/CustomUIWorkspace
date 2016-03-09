@@ -15,6 +15,7 @@
 #import "PTAttributeStringTool.h"
 #import "CTView.h"
 #import "PTAchievementBoardStandard.h"
+#import "SOLoadingView.h"
 #define kImageURL @"imageURL"
 #define kCode @"code"
 
@@ -32,11 +33,68 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:1.0];
-    // Do any additional setup after loading the view.
-    PTAchievementBoardStandard *board = [[PTAchievementBoardStandard alloc] initWithFrame:CGRectMake(0, 0, self.view.width/2, self.view.width/2/299*268)];
-    [board setAttributeWithCodeString:@"<font color=646464 size=14>昨日30分钟拼完</font><br><font color=313131 size=30>100</font><font color=313131 size=14>个</font><font color=646464 size=14>\n七巧板</font><br><font color=959595 size=12>平均速度</font><font color=646464 size=12 bold>超越了90%</font><font color=959595 size=12>的孩子</font>" icon:@"040"];
-    board.center = self.view.center;
-    [self.view addSubview:board];
+
+    UIView * view = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 250, 250)];
+    view.backgroundColor = [UIColor redColor];
+    view.layer.cornerRadius = view.frame.size.width/2;
+    [self.view addSubview:view];
+    
+    //create an animation to follow a circular path
+    CAKeyframeAnimation *pathAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    //interpolate the movement to be more smooth
+    pathAnimation.calculationMode = kCAAnimationPaced;
+    //apply transformation at the end of animation (not really needed since it runs forever)
+    pathAnimation.fillMode = kCAFillModeForwards;
+    pathAnimation.removedOnCompletion = NO;
+    //run forever
+    pathAnimation.repeatCount = INFINITY;
+    //no ease in/out to have the same speed along the path
+    pathAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    pathAnimation.duration = 5.0;
+    
+    //The circle to follow will be inside the circleContainer frame.
+    //it should be a frame around the center of your view to animate.
+    //do not make it to large, a width/height of 3-4 will be enough.
+    CGMutablePathRef curvedPath = CGPathCreateMutable();
+    CGRect circleContainer = CGRectInset(view.frame, view.width/2-20, view.height/2-20);
+    CGPathAddEllipseInRect(curvedPath, NULL, circleContainer);
+    
+    //add the path to the animation
+    pathAnimation.path = curvedPath;
+    //release path
+    CGPathRelease(curvedPath);
+    //add animation to the view's layer
+    [view.layer addAnimation:pathAnimation forKey:@"myCircleAnimation"];
+    
+    
+    //create an animation to scale the width of the view
+    CAKeyframeAnimation *scaleX = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale.x"];
+    //set the duration
+    scaleX.duration = 1;
+    //it starts from scale factor 1, scales to 1.05 and back to 1
+    scaleX.values = @[@1.0, @1.05, @1.0];
+    //time percentage when the values above will be reached.
+    //i.e. 1.05 will be reached just as half the duration has passed.
+    scaleX.keyTimes = @[@0.0, @0.5, @1.0];
+    //keep repeating
+    scaleX.repeatCount = INFINITY;
+    //play animation backwards on repeat (not really needed since it scales back to 1)
+    scaleX.autoreverses = YES;
+    //ease in/out animation for more natural look
+    scaleX.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    //add the animation to the view's layer
+    [view.layer addAnimation:scaleX forKey:@"scaleXAnimation"];
+    
+    //create the height-scale animation just like the width one above
+    //but slightly increased duration so they will not animate synchronously
+    CAKeyframeAnimation *scaleY = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale.y"];
+    scaleY.duration = 1.5;
+    scaleY.values = @[@1.0, @1.05, @1.0];
+    scaleY.keyTimes = @[@0.0, @0.5, @1.0];
+    scaleY.repeatCount = INFINITY;
+    scaleY.autoreverses = YES;
+    scaleX.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    [view.layer addAnimation:scaleY forKey:@"scaleYAnimation"];
 }
 
 -(void)startEmoji{
@@ -65,8 +123,6 @@
 
 -(NSAttributedString *)highlightNicknameForText:(NSString *)inputText withFont:(UIFont *)font{
     
-    clock_t s = clock();
-    
     if (inputText.length == 0) {
         return nil;
     }
@@ -91,8 +147,6 @@
         attachment.bounds = CGRectMake(0, ([UIFont systemFontOfSize:16].pointSize-[UIFont systemFontOfSize:16].lineHeight)/2, [UIFont systemFontOfSize:16].pointSize, [UIFont systemFontOfSize:16].pointSize);
         NSAttributedString *attachmentString = [NSAttributedString attributedStringWithAttachment:attachment];
         [attributedString replaceCharactersInRange:matchRange withAttributedString:attachmentString];    }];
-    
-    clock_t e = clock();
 
     return attributedString;
 }

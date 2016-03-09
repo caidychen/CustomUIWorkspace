@@ -2,9 +2,57 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>[呲牙]</key>
+	<string>001.png</string>
 	<key>[大笑]</key>
 	<string>002.png</string>
+	<key>[爱你]</key>
+	<string>003.png</string>
+	<key>[晕]</key>
+	<string>004.png</string>
+	<key>[流泪]</key>
+	<string>005.png</string>
+	<key>[抓狂]</key>
+	<string>007.png</string>
 	<key>[发怒]</key>
 	<string>010.png</string>
+	<key>[流汗]</key>
+	<string>011.png</string>
+	<key>[财迷]</key>
+	<string>014.png</string>
+	<key>[得意]</key>
+	<string>016.png</string>
+	<key>[衰]</key>
+	<string>017.png</string>
+	<key>[惊讶]</key>
+	<string>018.png</string>
+	<key>[鄙视]</key>
+	<string>020.png</string>
+	<key>[抠鼻]</key>
+	<string>021.png</string>
+	<key>[色]</key>
+	<string>022.png</string>
+	<key>[鼓掌]</key>
+	<string>023.png</string>
+	<key>[委屈]</key>
+	<string>033.png</string>
+	<key>[疑问]</key>
+	<string>036.png</string>
+	<key>[再见]</key>
+	<string>040.png</string>
+	<key>[赞]</key>
+	<string>042.png</string>
+	<key>[弱]</key>
+	<string>043.png</string>
+	<key>[威武]</key>
+	<string>047.png</string>
+	<key>[爱心]</key>
+	<string>051.png</string>
+	<key>[胜利]</key>
+	<string>059.png</string>
+	<key>[玫瑰]</key>
+	<string>064.png</string>
+	<key>[萌]</key>
+	<string>073.png</string>
 </dict>
 </plist>
